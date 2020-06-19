@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+'''
+linestats: Python module to count the number of scripted, commented, docstringed, and empty lines in
+python code.
+
+This file contains the main setup for the linestats package.
+
+Created April 2020, Frédéric Vogt: frederic.vogt@alumni.anu.edu.au
+---
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+import os
+from setuptools import setup # Always prefer setuptools over distutils
+
+# Run the version file
+v = open(os.path.join('.', 'linestats', 'version.py'))
+version = [l.split("'")[1] for l in v.readlines() if '__version__' in l][0]
+
+setup(name='linestats',
+      version=version,
+      author='F.P.A. Vogt',
+      author_email='frederic.vogt@alumni.anu.edu.au',
+      packages=['linestats',],
+      # url='',
+      # download_url='',
+      license='GNU General Public License',
+      description='Python module to count the number of scripted, commented, docstringed, and' + \
+                  ' empty lines in python code.',
+      #long_description=open('README').read(),
+      python_requires='>=3',
+      install_requires=[],
+
+      entry_points={'console_scripts': ['linestats=linestats.__main__:main']},
+
+      classifiers=[# How mature is this project? Common values are
+                   #   3 - Alpha
+                   #   4 - Beta
+                   #   5 - Production/Stable
+                   'Development Status :: 4 - Beta',
+
+                   # Indicate who your project is intended for
+                   #'Intended Audience :: Science/Research',
+                   #'Topic :: Scientific/Engineering :: Astronomy',
+
+                   # Pick your license as you wish (should match "license" above)
+                   'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+
+                   # Specify the Python versions you support here. In particular, ensure
+                   # that you indicate whether you support Python 2, Python 3 or both.
+                   'Programming Language :: Python :: 3.8',
+                   ],
+
+      include_package_data=False, # So that non .py files make it onto pypi, and then back !
+      #package_data={'example_files':['example_files/*'],
+      #              'docs':['../docs/build']
+      #             }
+      )
