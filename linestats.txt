@@ -1,39 +1,25 @@
  
-linestats 1.0 - https://github.com/fpavogt/linestats
+linestats 1.0.0 - https://github.com/fpavogt/linestats
 Copyright (C) 2020 F.P.A. Vogt
  
-Start time: 2020-06-20 09:57:23.195993
+Start time: 2020-06-20 10:49:09.242404
  
-Looking recursively for python script files in linestats
+Looking for python script files in linestats
  
 linestats/version.py
   Total: 24 - Code: 1 [4.2%] - Comment+docstr: 22 [91.7%] - Blank: 1 [4.2%]
 linestats/__init__.py
   Total: 7 - Code: 2 [28.6%] - Comment+docstr: 3 [42.9%] - Blank: 2 [28.6%]
 linestats/linestats.py
-  Total: 273 - Code: 128 [46.9%] - Comment+docstr: 102 [37.4%] - Blank: 43 [15.8%]
+  Total: 273 - Code: 125 [45.8%] - Comment+docstr: 103 [37.7%] - Blank: 45 [16.5%]
 linestats/__main__.py
   Total: 57 - Code: 4 [7.0%] - Comment+docstr: 49 [86.0%] - Blank: 4 [7.0%]
-linestats/__pycache__/linestats.cpython-37.pyc
-  does not look like Python code. Skipping it.
-linestats/__pycache__/__init__.cpython-38.pyc
-  does not look like Python code. Skipping it.
-linestats/__pycache__/version.cpython-37.pyc
-  does not look like Python code. Skipping it.
-linestats/__pycache__/__main__.cpython-38.pyc
-  does not look like Python code. Skipping it.
-linestats/__pycache__/version.cpython-38.pyc
-  does not look like Python code. Skipping it.
-linestats/__pycache__/linestats.cpython-38.pyc
-  does not look like Python code. Skipping it.
-linestats/__pycache__/__init__.cpython-37.pyc
-  does not look like Python code. Skipping it.
  
 Grand total: 361 lines in 4 files
-    Code: 135 [37.4%]
+    Code: 132 [36.6%]
     Docstrings: 144 [39.9%]
-    Comments: 32 [8.9%]
-    Empty: 50 [13.9%]
+    Comments: 33 [9.1%]
+    Empty: 52 [14.4%]
  
-All done in 0.001776s.
+All done in 0.000824s.
  
