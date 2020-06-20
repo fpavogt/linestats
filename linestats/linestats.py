@@ -21,8 +21,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
+import sys
 from pathlib import Path
+import datetime
 
+from .version import __version__
 
 def count_docstrings(lines):
     ''' Counts docstrings and remove them from the line list.
@@ -44,7 +47,7 @@ def count_docstrings(lines):
     for line in lines:
 
         #Look for the docstring tag
-        if line.strip(' ')[:3] in ["'''", '"""']:
+        if line.strip(' ').startswith(("'''", '"""')):
             in_docstr = ~in_docstr
             counter += 1
             continue
@@ -82,7 +85,7 @@ def count_comments(lines):
     lines_minus_comm = []
 
     for line in lines:
-        if line.strip(' ')[0] == '#':
+        if line.strip(' ').startswith('#'):
             counter += 1
         else:
             lines_minus_comm += [line]
@@ -114,7 +117,8 @@ def count_empty(lines):
     lines_minus_empty = []
 
     for line in lines:
-        if line.strip(' ') == '\n':
+        # Let us not forget about the last line, which may not contain a return tag !
+        if line.strip(' ').startswith('\n') or len(line.strip(' ')) == 0:
             counter += 1
         else:
             lines_minus_empty += [line]
@@ -125,7 +129,7 @@ def count_empty(lines):
 
     return counter, lines_minus_empty
 
-def extract_line_stats(search_path, recursive=False):
+def extract_line_stats(search_path, recursive=False, save_to_file=None):
     ''' Computes the number of blank, commented, docstringed and actual code lines in python code.
 
     The code can process either a specific .py file, or, if a directory name if given, all the .py
@@ -134,17 +138,33 @@ def extract_line_stats(search_path, recursive=False):
     Args:
         search_path (pathlib.Path, str): path to file or folder to process.
         recursive (bool): if True, will run a recursive search for .py files in subfolders.
+        save_to_file (pathlib.Path, str): if set, all code output will be stored in this file
 
     Raises:
         Exception: If the search_path is invalid
 
     Todo:
-        * Add a proper logger, to chose to send the output to file
         * Add test functions
     '''
 
-    # Clean the prompt
-    print(' ')
+    # Set up the message output channel if needed
+    if save_to_file is None:
+        mess_chan = sys.stdout
+    elif isinstance(save_to_file, (str, type(Path(' ')))):
+        mess_chan = open(save_to_file, 'w')
+    else:
+        raise Exception('Ouch ! save-to_file should be of type (str or %s), not: %s' %
+                        (type(Path('.'), type(save_to_file))))
+
+    # Set the scene
+    print(' ', file=mess_chan)
+    print('linestats %s - https://github.com/fpavogt/linestats' % (__version__), file=mess_chan)
+    print('Copyright (C) 2020 F.P.A. Vogt', file=mess_chan)
+    print(' ', file=mess_chan)
+
+    start_time = datetime.datetime.now()
+    print('Start time: %s' % (start_time), file=mess_chan)
+    print(' ', file=mess_chan)
 
     # Prepare some variables.
     file_total = 0
@@ -168,13 +188,14 @@ def extract_line_stats(search_path, recursive=False):
     # Was I given a proper directory ?
     elif search_path.is_dir():
         if recursive:
-            txt = 'recursively'
+            txt = ' recursively'
             mthd = '**/*'
         else:
             txt = ''
             mthd = '*'
 
-        print('Looking %s for python script files in %s' % (txt, search_path))
+        print('Looking%s for python script files in %s' % (txt, search_path), file=mess_chan)
+        print(' ', file=mess_chan)
         fnlist = search_path.glob(mthd)
 
     else:
@@ -190,7 +211,8 @@ def extract_line_stats(search_path, recursive=False):
 
         # Only deal with .py files
         if file_path.suffix != '.py':
-            print('%s does not look like Python code. Skipping it ...' % (file_path))
+            print('%s' % (file_path), file=mess_chan)
+            print('  does not look like Python code. Skipping it.', file=mess_chan)
             continue
 
         # Very well, let's extract the file lines.
@@ -220,17 +242,32 @@ def extract_line_stats(search_path, recursive=False):
         code = total_lines - empty - docstr - comm
         code_total += code
 
-        print(file_path)
+        print(file_path, file=mess_chan)
         print('  Total: %i - Code: %i [%.1f%%] - Comment+docstr: %i [%.1f%%] - Blank: %i [%.1f%%]' %
               (total_lines, code, 100*code/total_lines, comm+docstr, 100*(comm+docstr)/total_lines,
-               empty, 100*empty/total_lines))
+               empty, 100*empty/total_lines), file=mess_chan)
 
-    print(' ')
-    print('Grand total: %i lines in %i files' % (grand_total, file_total))
+    # Print the final numbers
+    print(' ', file=mess_chan)
+    print('Grand total: %i lines in %i files' % (grand_total, file_total), file=mess_chan)
     if grand_total > 0:
-        print('    Code: %i [%.1f%%]' % (code_total, code_total/grand_total*100))
-        print('    Docstrings: %i [%.1f%%]' % (docstr_total, docstr_total/grand_total*100))
-        print('    Comments: %i [%.1f%%]' % (comm_total, comm_total/grand_total*100))
-        print('    Empty: %i [%.1f%%]' % (empty_total, empty_total/grand_total*100))
-    print(' ')
-    
+        print('    Code: %i [%.1f%%]' % (code_total, code_total/grand_total*100), file=mess_chan)
+        print('    Docstrings: %i [%.1f%%]' % (docstr_total, docstr_total/grand_total*100),
+              file=mess_chan)
+        print('    Comments: %i [%.1f%%]' % (comm_total, comm_total/grand_total*100),
+              file=mess_chan)
+        print('    Empty: %i [%.1f%%]' % (empty_total, empty_total/grand_total*100), file=mess_chan)
+
+    print(' ', file=mess_chan)
+    print('All done in %ss.' %(datetime.datetime.now() - start_time).total_seconds(),
+          file=mess_chan)
+    print(' ', file=mess_chan)
+
+
+    # If I was writing to file, let's remember to close it.
+    if save_to_file is not None:
+        mess_chan.close()
+        print(' ')
+        print(' All done in  %ss.' %(datetime.datetime.now() - start_time).total_seconds())
+        print(' Output saved under %s' % save_to_file)
+        print(' ')
