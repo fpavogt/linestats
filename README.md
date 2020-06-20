@@ -54,7 +54,8 @@ linestats is extremely basic, and the output should be largely self-explanatory.
 2. The different lines are counted in the following category order: **docstrings -> comments -> emtpy -> code**. 
   Each step feeds the following only with the lines that do not belong to it. This implies, for example, that 
     * an empty line inside a docstring is counted as a docstring line,
-    * a docstring line starting with `#` is also counted as a docstring line, and
+    * a docstring line starting with `#` is also counted as a docstring line,
+    * `a = 4 # A comment on the same line as code` would be counted as a code line, and
     * each line belongs to a single category, is counted once only, so the sum of all the categories adds up to 100%.
  
 ## Changelog
