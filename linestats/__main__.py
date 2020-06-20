@@ -31,13 +31,13 @@ parser = argparse.ArgumentParser(description='''Computes the number of blank, co
                                  '''and script lines in a python code. ''',
                                  epilog='Feedback, questions: frederic.vogt@alumni.anu.edu.au \n',
                                  formatter_class=argparse.RawTextHelpFormatter)
-
-parser.add_argument('-v', '--version', action='version', version=('linestats %s' % __version__))
-
+                                 
 parser.add_argument('-p', action='store', metavar='path/to/file(s)', default='.',
                     help='location or file to analyze')
-
 parser.add_argument('-r', action='store_true', help='run a recursive search')
+parser.add_argument('-s', action='store', metavar='path/to/file.txt', default=None,
+                    help='set a filename to store the linestats output')
+parser.add_argument('-v', '--version', action='version', version=('linestats %s' % __version__))
 
 
 def main():
@@ -49,7 +49,7 @@ def main():
     args = parser.parse_args()
 
     # Feed the info to the routine
-    linestats.extract_line_stats(args.p, recursive=args.r)
+    linestats.extract_line_stats(args.p, recursive=args.r, save_to_file=args.s)
 
 # Make it work
 if __name__ == "__main__":
