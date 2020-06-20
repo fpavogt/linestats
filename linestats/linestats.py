@@ -85,14 +85,10 @@ def count_comments(lines):
     lines_minus_comm = []
 
     for line in lines:
-      try:
         if line.strip(' ').startswith('#'):
             counter += 1
         else:
             lines_minus_comm += [line]
-      except:
-        import pdb
-        pdb.set_trace()
 
     # A small sanity check before closing
     if len(lines_minus_comm) != len(lines) - counter:
@@ -119,7 +115,7 @@ def count_empty(lines):
 
     counter = 0
     lines_minus_empty = []
-    
+
     for line in lines:
         # Let us not forget about the last line, which may not contain a return tag !
         if line.strip(' ').startswith('\n') or len(line.strip(' ')) == 0:
@@ -154,10 +150,10 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
     # Set up the message output channel if needed
     if save_to_file is None:
         mess_chan = sys.stdout
-    elif isinstance(save_to_file, str) or isinstance(save_to_file, type(Path(' '))):
+    elif isinstance(save_to_file, (str, type(Path(' ')))):
         mess_chan = open(save_to_file, 'w')
     else:
-        raise Exception('Ouch ! save-to_file should be of type (str or %s), not: %s' % 
+        raise Exception('Ouch ! save-to_file should be of type (str or %s), not: %s' %
                         (type(Path('.'), type(save_to_file))))
 
     # Set the scene
@@ -251,23 +247,27 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
               (total_lines, code, 100*code/total_lines, comm+docstr, 100*(comm+docstr)/total_lines,
                empty, 100*empty/total_lines), file=mess_chan)
 
+    # Print the final numbers
     print(' ', file=mess_chan)
     print('Grand total: %i lines in %i files' % (grand_total, file_total), file=mess_chan)
     if grand_total > 0:
         print('    Code: %i [%.1f%%]' % (code_total, code_total/grand_total*100), file=mess_chan)
-        print('    Docstrings: %i [%.1f%%]' % (docstr_total, docstr_total/grand_total*100), 
+        print('    Docstrings: %i [%.1f%%]' % (docstr_total, docstr_total/grand_total*100),
               file=mess_chan)
-        print('    Comments: %i [%.1f%%]' % (comm_total, comm_total/grand_total*100), 
+        print('    Comments: %i [%.1f%%]' % (comm_total, comm_total/grand_total*100),
               file=mess_chan)
         print('    Empty: %i [%.1f%%]' % (empty_total, empty_total/grand_total*100), file=mess_chan)
+
     print(' ', file=mess_chan)
-    print('All done in %ss.' %(datetime.datetime.now() - start_time).total_seconds(), file=mess_chan)
+    print('All done in %ss.' %(datetime.datetime.now() - start_time).total_seconds(),
+          file=mess_chan)
     print(' ', file=mess_chan)
-    
-    # If I was writing to file, let's remember to close it. 
+
+
+    # If I was writing to file, let's remember to close it.
     if save_to_file is not None:
-       mess_chan.close()
-       print(' ')
-       print(' All done in  %ss.' %(datetime.datetime.now() - start_time).total_seconds())
-       print(' Output saved under %s' % save_to_file)
-       print(' ')
+        mess_chan.close()
+        print(' ')
+        print(' All done in  %ss.' %(datetime.datetime.now() - start_time).total_seconds())
+        print(' Output saved under %s' % save_to_file)
+        print(' ')

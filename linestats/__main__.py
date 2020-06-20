@@ -31,7 +31,7 @@ parser = argparse.ArgumentParser(description='''Computes the number of blank, co
                                  '''and script lines in a python code. ''',
                                  epilog='Feedback, questions: frederic.vogt@alumni.anu.edu.au \n',
                                  formatter_class=argparse.RawTextHelpFormatter)
-                                 
+
 parser.add_argument('-p', action='store', metavar='path/to/file(s)', default='.',
                     help='location or file to analyze')
 parser.add_argument('-r', action='store_true', help='run a recursive search')
