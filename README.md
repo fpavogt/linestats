@@ -16,7 +16,7 @@ Until I get the chance to put this on pypi, you'll need to install this package 
   1. Download a compressed copy of the master branch.
   2. Then, in a decent terminal of your choice: 
      ```
-     cd some/path/of/your/choice/linestats_master`
+     cd some/path/of/your/choice/linestats_master
      pip install -e .
      ```
      
