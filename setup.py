@@ -15,7 +15,7 @@ SPDX-License-identifier: GPL-3.0-or-later
 import os
 from setuptools import setup # Always prefer setuptools over distutils
 
-# Run the version file
+# Extract the version from the version file
 v = open(os.path.join('.', 'linestats', 'version.py'))
 version = [l.split("'")[1] for l in v.readlines() if '__version__' in l][0]
 
@@ -24,12 +24,12 @@ setup(name='linestats',
       author='F.P.A. Vogt',
       author_email='frederic.vogt@alumni.anu.edu.au',
       packages=['linestats',],
-      # url='',
-      # download_url='',
-      license='GNU General Public License',
+      url='https://github.com/fpavogt/linestats',
+      download_url='https://github.com/fpavogt/linestats/archive/master.zip',
+      license='GNU General Public License v3 or later (GPLv3+)',
       description='Python module to count the number of scripted, commented, docstringed, and' + \
                   ' empty lines in python code.',
-      #long_description=open('README').read(),
+      long_description=open('README.md').read(),
       python_requires='>=3',
       install_requires=[],
 
