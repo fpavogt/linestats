@@ -5,20 +5,11 @@ python code.
 
 This file contains the core functions.
 
-Created April 2020, Frédéric Vogt: frederic.vogt@alumni.anu.edu.au
----
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+Copyright (c) 2020 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+Distributed under the terms of the GNU General Public License v3.0 or later.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+SPDX-License-identifier: GPL-3.0-or-later
 '''
 
 import sys
@@ -159,7 +150,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
     # Set the scene
     print(' ', file=mess_chan)
     print('linestats %s - https://github.com/fpavogt/linestats' % (__version__), file=mess_chan)
-    print('Copyright (C) 2020 F.P.A. Vogt', file=mess_chan)
+    print('Copyright (c) 2020 F.P.A. Vogt', file=mess_chan)
     print(' ', file=mess_chan)
 
     start_time = datetime.datetime.now()
