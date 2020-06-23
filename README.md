@@ -1,5 +1,8 @@
-# linestats ![watch](https://img.shields.io/github/watchers/fpavogt/linestats.svg?style=social&label=Watch) ![star](https://img.shields.io/github/stars/fpavogt/linestats.svg?style=social&label=Stars)
-![github](https://img.shields.io/github/release/fpavogt/linestats.svg) ![last-commit](https://img.shields.io/github/last-commit/fpavogt/linestats.svg?colorB=e6c000) ![issues](https://img.shields.io/github/issues/fpavogt/linestats.svg?colorB=b4001e) ![pypi](https://img.shields.io/pypi/v/linestats.svg?colorB=<brightgreen>)
+# linestats
+
+[![github](https://img.shields.io/github/release/fpavogt/linestats.svg)](https://github.com/fpavogt/linestats/releases)
+[![last-commit](https://img.shields.io/github/last-commit/fpavogt/linestats.svg?colorB=e6c000)](https://github.com/fpavogt/linestats) [![issues](https://img.shields.io/github/issues/fpavogt/linestats.svg?colorB=b4001e)](https://github.com/fpavogt/linestats/issues) 
+[![pypi](https://img.shields.io/pypi/v/linestats.svg?colorB=<brightgreen>)](https://pypi.python.org/pypi/linestats/)
 
 
 Ever wanted/needed to know how many lines are empty, comments, docstrings or actual code in some Python scripts of yours ?
