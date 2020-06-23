@@ -12,4 +12,4 @@ Distributed under the terms of the GNU General Public License v3.0 or later.
 SPDX-License-identifier: GPL-3.0-or-later
 '''
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'

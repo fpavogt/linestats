@@ -120,7 +120,7 @@ def count_empty(lines):
 
     return counter, lines_minus_empty
 
-def extract_line_stats(search_path, recursive=False, save_to_file=None):
+def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=False):
     ''' Computes the number of blank, commented, docstringed and actual code lines in Python code.
 
     The code can process either a specific .py file, or, if a directory name if given, all the .py
@@ -130,6 +130,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
         search_path (pathlib.Path, str): path to file or folder to process.
         recursive (bool): if True, will run a recursive search for .py files in subfolders.
         save_to_file (pathlib.Path, str): if set, all code output will be stored in this file
+        verbose (bool): if True, will also indicate which files are skipped. 
 
     Raises:
         Exception: If the search_path is invalid
@@ -202,8 +203,10 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
 
         # Only deal with .py files
         if file_path.suffix != '.py':
-            print('%s' % (file_path), file=mess_chan)
-            print('  does not look like Python code. Skipping it.', file=mess_chan)
+            if verbose:
+                print('%s' % (file_path), file=mess_chan)
+                print('  does not look like Python code. Skipping it.', file=mess_chan)
+
             continue
 
         # Very well, let's extract the file lines.
@@ -217,6 +220,12 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
         # Get the total line count
         total_lines = len(lines)
         grand_total += total_lines
+
+        # If the file is empty, avoid a bad division by 0
+        if total_lines == 0:
+            print(file_path, file=mess_chan)
+            print('  Total: 0', file=mess_chan)
+            continue
 
         # Track the docstrings
         docstr, lines_minus_docstr = count_docstrings(lines)

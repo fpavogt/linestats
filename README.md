@@ -33,8 +33,9 @@ Using linestats is fairly straightforward. You can do so (1) in any decent termi
      This will process the `file.py` (or all `.py`file located at the indicated location, if a directory is specified). The other options are: 
      - `-h` for help,
      - `-r` to run a recursive search for `.py` files in subfolders, 
-     - `-s output_file.txt` to save the statistics to file instead of `sys.stdout`, and
-     - `-v` to print the linestats version.
+     - `-s output_file.txt` to save the statistics to file instead of `sys.stdout`,
+     - `-v` to print the linestats version, and
+     - `-w` to print also the name of the files that are being skipped.
   
   * from a Python script/shell: 
      ```python3
@@ -72,10 +73,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 [//]: # (#### Fixed:)
 [//]: # (#### Security:)
 
+### [1.1.0]
+#### Added:
+ - [2020-06-23, F.P.A. Vogt] Add the `verbose` argument with associated `-w` option for the high-level entry point.
+#### Fixed:
+ - [2020-06-23, F.P.A. Vogt] Fix bug with empty files.
+
 ### [1.0.0]
 #### Added
- - [F.P.A. Vogt, 2020-06-20] Add option to save output to file (#2).
- - [F.P.A. Vogt, 2020-06-19] Initial module assembly + Github upload.
+ - [2020-06-20, F.P.A. Vogt] Add option to save output to file (#2).
+ - [2020-06-19, F.P.A. Vogt] Initial module assembly + Github upload.
 #### Fixed:
- - [F.P.A. Vogt, 2020-06-20] Fix bug for scripts with last lines containing only spaces (#2).
+ - [2020-06-20, F.P.A. Vogt] Fix bug for scripts with last lines containing only spaces (#2).
 

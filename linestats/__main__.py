@@ -29,6 +29,8 @@ parser.add_argument('-r', action='store_true', help='run a recursive search')
 parser.add_argument('-s', action='store', metavar='path/to/file.txt', default=None,
                     help='set a filename to store the linestats output')
 parser.add_argument('-v', '--version', action='version', version=('linestats %s' % __version__))
+parser.add_argument('-w', action='store_true', help='show also the files that are skipped')
+
 
 
 def main():
@@ -40,7 +42,7 @@ def main():
     args = parser.parse_args()
 
     # Feed the info to the routine
-    linestats.extract_line_stats(args.p, recursive=args.r, save_to_file=args.s)
+    linestats.extract_line_stats(args.p, recursive=args.r, save_to_file=args.s, verbose=args.w)
 
 # Make it work
 if __name__ == "__main__":
