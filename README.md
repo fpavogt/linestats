@@ -45,7 +45,7 @@ Using linestats is fairly straightforward. You can do so (1) in any decent termi
      p = Path('some', 'path', 'to', 'dir', 'or', 'file.py')
      s = Path('.', 'output_file.py')
      
-     linestats.extract_line_stats(p, recursive=True, save_to_file=s)
+     linestats.extract_line_stats(p, recursive=True, save_to_file=s, verbose=False)
      ```
 
 ## Limitations
