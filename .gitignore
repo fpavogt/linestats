@@ -2,3 +2,5 @@
 _pycache_/
 .DS_Store
 *.egg-info/
+build/
+dist/
