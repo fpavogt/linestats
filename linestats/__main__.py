@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 linestats: Python module to count the number of scripted, commented, docstringed, and empty lines in
-python code.
+Python code.
 
 This file handles the high-level entry point for the code.
 
