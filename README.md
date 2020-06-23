@@ -1,4 +1,24 @@
-# linestats
+.. |last-commit| image:: https://img.shields.io/github/last-commit/fpavogt/linestats.svg?colorB=e6c000
+   :target: https://github.com/MeteoSwiss-MDA/dvas
+
+.. |issues| image:: https://img.shields.io/github/issues/fpavogt/linestats.svg?colorB=b4001e   
+   :target: https://github.com/MeteoSwiss-MDA/dvas/issues
+
+.. |stars| image:: https://img.shields.io/github/stars/fpavogt/linestats.svg?style=social&label=Stars
+   :target: https://github.com/MeteoSwiss-MDA/dvas
+
+.. |watch| image:: https://img.shields.io/github/watchers/fpavogt/linestats.svg?style=social&label=Watch
+   :target: https://github.com/MeteoSwiss-MDA/dvas
+
+.. |pypi| image:: https://img.shields.io/pypi/v/linestats.svg?colorB=<brightgreen>
+   :target: https://pypi.python.org/pypi/linestats/
+
+.. |github| image:: https://img.shields.io/github/release/fpavogt/linestats.svg
+   :target: https://github.com/fpavogt/linestats/releases
+
+
+# linestats |watch| |star|
+|pypi| |github| |last-commit| |issues|
 
 Ever wanted/needed to know how many lines are empty, comments, docstrings or actual code in some Python scripts of yours ?
 
@@ -12,19 +32,13 @@ Presenting **linestats: a small Python module to count the number of scripted, c
 
 ## Installation
 
-Until I get the chance to put this on pypi, you'll need to install this package manually. Here's one way to do so:
-  1. Download a compressed copy of the master branch.
-  2. Then, in a decent terminal of your choice: 
-     ```
-     cd some/path/of/your/choice/linestats_master
-     pip install -e .
-     ```
-     
-  3. That's it. If all went well, you should be able to do the following:
-     ```
-     linestats -v
-     ```
-  
+linestats is available on pypi. The following command should take care of things:
+```
+pip install linestats
+```
+
+Alternatively, you can also get the code from its [dedicated Github repository](https://github.com/fpavogt/linestats).
+
 ## Running
 Using linestats is fairly straightforward. You can do so (1) in any decent terminal using the in-built entry point, or (2) from within a Python shell by importing the corresponding module. Both methods are the same, and here's how they work:
   * from a terminal: The basic syntax is 

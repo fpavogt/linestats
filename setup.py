@@ -19,6 +19,9 @@ from setuptools import setup # Always prefer setuptools over distutils
 v = open(os.path.join('.', 'linestats', 'version.py'))
 version = [l.split("'")[1] for l in v.readlines() if '__version__' in l][0]
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(name='linestats',
       version=version,
       author='F.P.A. Vogt',
@@ -29,7 +32,8 @@ setup(name='linestats',
       license='GNU General Public License v3 or later (GPLv3+)',
       description='Python module to count the number of scripted, commented, docstringed, and' + \
                   ' empty lines in python code.',
-      long_description=open('README.md').read(),
+      long_description=long_description,
+      long_description_content_type="text/markdown",
       python_requires='>=3',
       install_requires=[],
 
