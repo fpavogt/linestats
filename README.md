@@ -7,7 +7,7 @@
 
 Ever wanted/needed to know how many lines are empty, comments, docstrings or actual code in some Python scripts of yours ?
 
-Presenting **linestats: a small Python module to count the number of scripted, commented, docstringed, and empty lines in python code**. Here is what it contains *and* what it does: [linestats.txt](linestats.txt)
+Presenting **linestats: a small Python module to count the number of scripted, commented, docstringed, and empty lines in Python code**. Here is what it contains *and* what it does: [linestats.txt](https://github.com/fpavogt/linestats/blob/master/linestats.txt)
 
 ## Table of contents
 - [Installation](#installation)
