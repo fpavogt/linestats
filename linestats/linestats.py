@@ -121,7 +121,7 @@ def count_empty(lines):
     return counter, lines_minus_empty
 
 def extract_line_stats(search_path, recursive=False, save_to_file=None):
-    ''' Computes the number of blank, commented, docstringed and actual code lines in python code.
+    ''' Computes the number of blank, commented, docstringed and actual code lines in Python code.
 
     The code can process either a specific .py file, or, if a directory name if given, all the .py
     files within it (including the options of making a recursive search).
@@ -185,7 +185,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None):
             txt = ''
             mthd = '*'
 
-        print('Looking%s for python script files in %s' % (txt, search_path), file=mess_chan)
+        print('Looking%s for Python script files in %s' % (txt, search_path), file=mess_chan)
         print(' ', file=mess_chan)
         fnlist = search_path.glob(mthd)
 
