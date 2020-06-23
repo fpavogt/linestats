@@ -31,7 +31,7 @@ setup(name='linestats',
       download_url='https://github.com/fpavogt/linestats/archive/master.zip',
       license='GNU General Public License v3 or later (GPLv3+)',
       description='Python module to count the number of scripted, commented, docstringed, and' + \
-                  ' empty lines in python code.',
+                  ' empty lines in Python code.',
       long_description=long_description,
       long_description_content_type="text/markdown",
       python_requires='>=3',
