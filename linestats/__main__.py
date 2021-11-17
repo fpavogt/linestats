@@ -5,7 +5,7 @@ Python code.
 
 This file handles the high-level entry point for the code.
 
-Copyright (c) 2020 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
+Copyright (c) 2020-2021 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
 Distributed under the terms of the GNU General Public License v3.0 or later.
 

@@ -1,25 +1,25 @@
  
-linestats 1.0.0 - https://github.com/fpavogt/linestats
-Copyright (c) 2020 F.P.A. Vogt
+linestats 1.2.0 - https://github.com/fpavogt/linestats
+Copyright (c) 2020-2021 F.P.A. Vogt
  
-Start time: 2020-06-22 15:09:45.343730
+Start time: 2021-11-17 16:00:16.130119
  
-Looking for python script files in linestats
+Looking for Python script files in linestats
  
 linestats/version.py
   Total: 15 - Code: 1 [6.7%] - Comment+docstr: 13 [86.7%] - Blank: 1 [6.7%]
 linestats/__init__.py
-  Total: 7 - Code: 2 [28.6%] - Comment+docstr: 3 [42.9%] - Blank: 2 [28.6%]
+  Total: 17 - Code: 2 [11.8%] - Comment+docstr: 13 [76.5%] - Blank: 2 [11.8%]
 linestats/linestats.py
-  Total: 264 - Code: 125 [47.3%] - Comment+docstr: 94 [35.6%] - Blank: 45 [17.0%]
+  Total: 273 - Code: 130 [47.6%] - Comment+docstr: 96 [35.2%] - Blank: 47 [17.2%]
 linestats/__main__.py
-  Total: 48 - Code: 4 [8.3%] - Comment+docstr: 40 [83.3%] - Blank: 4 [8.3%]
+  Total: 50 - Code: 4 [8.0%] - Comment+docstr: 42 [84.0%] - Blank: 4 [8.0%]
  
-Grand total: 334 lines in 4 files
-    Code: 132 [39.5%]
-    Docstrings: 117 [35.0%]
-    Comments: 33 [9.9%]
-    Empty: 52 [15.6%]
+Grand total: 355 lines in 4 files
+    Code: 137 [38.6%]
+    Docstrings: 130 [36.6%]
+    Comments: 34 [9.6%]
+    Empty: 54 [15.2%]
  
-All done in 0.000847s.
+All done in 0.00095s.
  
