@@ -151,7 +151,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
     # Set the scene
     print(' ', file=mess_chan)
     print('linestats %s - https://github.com/fpavogt/linestats' % (__version__), file=mess_chan)
-    print('Copyright (c) 2020 F.P.A. Vogt', file=mess_chan)
+    print('Copyright (c) 2020-2021 F.P.A. Vogt', file=mess_chan)
     print(' ', file=mess_chan)
 
     start_time = datetime.datetime.now()
