@@ -5,7 +5,7 @@ Python code.
 
 This file contains the main setup for the linestats package.
 
-Copyright (c) 2020 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
+Copyright (c) 2020-2021 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
 Distributed under the terms of the GNU General Public License v3.0 or later.
 
@@ -54,7 +54,10 @@ setup(name='linestats',
 
                    # Specify the Python versions you support here. In particular, ensure
                    # that you indicate whether you support Python 2, Python 3 or both.
+                   'Programming Language :: Python :: 3',
                    'Programming Language :: Python :: 3.8',
+                   'Programming Language :: Python :: 3.9',
+                   'Programming Language :: Python :: 3.10',
                    ],
 
       include_package_data=False, # So that non .py files make it onto pypi, and then back !
