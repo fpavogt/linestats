@@ -5,7 +5,7 @@ Python code.
 
 This file contains the core functions.
 
-Copyright (c) 2020 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
+Copyright (c) 2020-2021 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
 Distributed under the terms of the GNU General Public License v3.0 or later.
 
@@ -130,7 +130,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
         search_path (pathlib.Path, str): path to file or folder to process.
         recursive (bool): if True, will run a recursive search for .py files in subfolders.
         save_to_file (pathlib.Path, str): if set, all code output will be stored in this file
-        verbose (bool): if True, will also indicate which files are skipped. 
+        verbose (bool): if True, will also indicate which files are skipped.
 
     Raises:
         Exception: If the search_path is invalid
