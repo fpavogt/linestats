@@ -20,5 +20,6 @@ jobs:
     # Get the head version file
     - name: Fetch the HEAD version file
       run: |
-        echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/linestats/version.py -o head_version.py
-        ls *.py
+        export VERSION_LOC = linestats/version.py
+        echo -O head_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
+        echo -O base_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
