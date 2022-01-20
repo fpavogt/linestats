@@ -24,7 +24,7 @@ from pylint import epylint as lint
 def main():
     ''' The main function. '''
 
-    # Use argparse to allow to feed parameters to this script
+    # Use argparse to allow feeding parameters to this script
     parser = argparse.ArgumentParser(description='''Runs pylint on all .py files in a folder and all
                                                     its subfolders. Intended to be used with a
                                                     Github Action.''',
