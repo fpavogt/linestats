@@ -30,9 +30,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install setuptools
         pip install wheel
+        pip install twine
       shell: bash
 
-    - name: Build distribution
+    - name: Build
+      env:
+        PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        PYPI_PWD: ${{ secrets.PYPI_PASSWORD }}
       run: |
         python setup.py sdist bdist_wheel
+        twine upload --repository-url https://test.pypi.org/legacy/ dist/* --verbose --skip-existing
       shell: bash
