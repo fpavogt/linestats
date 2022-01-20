@@ -24,10 +24,15 @@ with open("README.md", "r") as fh:
 
 setup(name='linestats',
       version=version,
-      author='F.P.A. Vogt',
+      author='fpavogt',
       author_email='frederic.vogt@alumni.anu.edu.au',
       packages=['linestats',],
       url='https://github.com/fpavogt/linestats',
+      project_urls={
+        'Source': 'https://github.com/fpavogt/linestats',
+        'Changelog': 'https://github.com/fpavogt/linestats#changelog',
+        'Issues': 'https://github.com/fpavogt/linestats/issues'
+      },
       download_url='https://github.com/fpavogt/linestats/archive/master.zip',
       license='GNU General Public License v3 or later (GPLv3+)',
       description='Python module to count the number of scripted, commented, docstringed, and' + \
