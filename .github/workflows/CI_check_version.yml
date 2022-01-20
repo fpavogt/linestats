@@ -19,4 +19,4 @@ jobs:
     steps:
     # Get the head version file
     - name: Fetch the HEAD version file
-      run: echo "wget $GITHUB_SERVER_URL + $GITHUB_REPOSITORY + $GITHUB_HEAD_REF
+      run: echo $GITHUB_SERVER_URL + $GITHUB_REPOSITORY + $GITHUB_HEAD_REF
