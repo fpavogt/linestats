@@ -17,9 +17,10 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    # Get the head version file
+    # Fetch the head and base version file
     - name: Fetch the HEAD version file
       run: |
         export VERSION_LOC=linestats/version.py
-        echo -O head_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
-        echo -O base_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
+        wget -O head_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
+        wget -O base_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
+        ls
