@@ -20,5 +20,5 @@ jobs:
     # Get the head version file
     - name: Fetch the HEAD version file
       run: |
-        wget $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/linestats/version.py -o head_version.py
+        echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/linestats/version.py -o head_version.py
         ls *.py
