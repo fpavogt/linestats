@@ -73,6 +73,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 [//]: # (#### Fixed:)
 [//]: # (#### Security:)
 
+### [1.2.1]
+#### Added:
+- [2022-01-20, fpavogt] Add new CI to check if code version increases.
+
 ### [1.2.0]
 #### Added:
 - [2021-11-17, F.P.A. Vogt] Add basic tests, and Github Actions to run pylint and pytest.
