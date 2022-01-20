@@ -42,8 +42,7 @@ def main():
         print("Version was increased. Well done.")
         return True
 
-    print("Version was not increased ?")
-    return False
+    raise Exception('Ouch ! Version was not increased ?!')
 
 if __name__ == '__main__':
 
