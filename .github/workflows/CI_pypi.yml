@@ -33,11 +33,14 @@ jobs:
         pip install twine
       shell: bash
 
-    - name: Build
+    - name: Build, testpypi, and pypi
+      # Let's make use of Github secrest at the repo level to avoid spelling out secret stuff
       env:
         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
         PYPI_PWD: ${{ secrets.PYPI_PASSWORD }}
+      # After assembling the distribution, we first go to testpypi to make sure nothing blows up
+      # Only then do we push to pypi
       run: |
         python setup.py sdist bdist_wheel
-        twine upload --repository-url https://test.pypi.org/legacy/ dist/* --verbose --skip-existing
+        twine upload --repository-url https://test.pypi.org/legacy/ dist/* --verbose --skip-existing -u "$env:PYPI_USERNAME" -p "$env:PYPI_PWD"
       shell: bash
