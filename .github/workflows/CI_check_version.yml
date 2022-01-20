@@ -1,4 +1,4 @@
-# This workflow will check that the code version was correctly upgraded.
+# This workflow will check that the code version was increased.
 #
 # Copyright (c) 2022 MeteoSwiss, created by F.P.A. Vogt; frederic.vogt@meteoswiss.ch
 
@@ -17,10 +17,25 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    # Fetch the head and base version file
-    - name: Fetch the HEAD version file
+    - name: wget the HEAD and BASE version files
       run: |
         export VERSION_LOC=linestats/version.py
         wget -O head_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
         wget -O base_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
-        ls
+
+    - name: Extract the head and base version
+        grep version head_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*' | HEAD_VERSION
+        echo HEAD_VERSION: $HEAD_VERSION
+        grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*' | BASE_VERSION
+        echo BASE_VERSION: $BASE_VERSION
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    # Run a little program to check if two versions are the same
+    - name: Check if the version was increased
+      run: python ./.github/workflows/check_version.py $HEAD_VERSION $BASE_VERSION
+        shell: bash
