@@ -1,4 +1,5 @@
-# This workflow will check that the code version was increased.
+# This workflow will push the code onto pypi.
+# It uses the PYPI_USERNAME and PYPI_PASSWORD secrets from GITHUB to login on there.
 #
 # Copyright (c) 2022 MeteoSwiss, created by F.P.A. Vogt; frederic.vogt@meteoswiss.ch
 
@@ -42,5 +43,5 @@ jobs:
       # Only then do we push to pypi
       run: |
         python setup.py sdist bdist_wheel
-        twine upload --repository-url https://test.pypi.org/legacy/ dist/* --verbose --skip-existing -u "$env:PYPI_USERNAME" -p "$env:PYPI_PWD"
+        twine upload -r testpypi dist/* --verbose --skip-existing -u "$env:PYPI_USERNAME" -p "$env:PYPI_PWD"
       shell: bash
