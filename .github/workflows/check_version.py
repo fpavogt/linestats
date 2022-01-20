@@ -13,7 +13,7 @@ Created January 2022; F.P.A. Vogt; frederic.vogt@meteoswiss.ch
 '''
 
 import argparse
-from packaging import version as pversion
+from pkg_resources import parse_version
 
 def main():
     ''' The main function. '''
@@ -38,7 +38,7 @@ def main():
     print("Head:", args.head)
     print("Base:", args.base)
 
-    if pversion.parse(args.head) > pversion.parse(args.base):
+    if parse_version(args.head) > parse_version(args.base):
         print("Version was increased. Well done.")
         return True
 
