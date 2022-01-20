@@ -9,7 +9,7 @@ on:
     branches: [ master, develop ]
 
 jobs:
-  pytest:
+  version:
 
     runs-on: ${{ matrix.os }}
     strategy:
@@ -29,6 +29,9 @@ jobs:
         echo "HEAD_VERSION:" $HEAD_VERSION
         BASE_VERSION="$(grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
         echo "BASE_VERSION:" $BASE_VERSION
+
+    - name: Checkout current repository
+        uses: actions/checkout@v2
 
     # Set up Python
     - name: Set up Python
