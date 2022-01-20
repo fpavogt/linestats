@@ -25,9 +25,9 @@ jobs:
 
     - name: Extract the head and base version
       run: |
-        grep version head_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*' | HEAD_VERSION
+        HEAD_VERSION="$(grep version head_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
         echo "HEAD_VERSION:" $HEAD_VERSION
-        grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*' | BASE_VERSION
+        BASE_VERSION="$(grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
         echo "BASE_VERSION:" $BASE_VERSION
 
     # Set up Python
