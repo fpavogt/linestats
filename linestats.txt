@@ -1,8 +1,8 @@
  
-linestats 1.2.0 - https://github.com/fpavogt/linestats
+linestats 1.2.1 - https://github.com/fpavogt/linestats
 Copyright (c) 2020-2021 F.P.A. Vogt
  
-Start time: 2021-11-17 16:00:16.130119
+Start time: 2022-01-20 17:57:53.558164
  
 Looking for Python script files in linestats
  
@@ -21,5 +21,5 @@ Grand total: 355 lines in 4 files
     Comments: 34 [9.6%]
     Empty: 54 [15.2%]
  
-All done in 0.00095s.
+All done in 0.001255s.
  

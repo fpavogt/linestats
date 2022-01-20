@@ -76,19 +76,21 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### [1.2.1]
 #### Added:
 - [2022-01-20, fpavogt] Add new CI to check if code version increases.
+#### Changed:
+- [2020-01-20, fpavogt] Adjusted copyright years.
 
 ### [1.2.0]
 #### Added:
-- [2021-11-17, F.P.A. Vogt] Add basic tests, and Github Actions to run pylint and pytest.
+- [2021-11-17, fpavogt] Add basic tests, and Github Actions to run pylint and pytest.
 ### [1.1.0]
 #### Added:
- - [2020-06-23, F.P.A. Vogt] Add the `verbose` argument with associated `-w` option for the high-level entry point.
+ - [2020-06-23, fpavogt] Add the `verbose` argument with associated `-w` option for the high-level entry point.
 #### Fixed:
- - [2020-06-23, F.P.A. Vogt] Fix bug with empty files.
+ - [2020-06-23, fpavogt] Fix bug with empty files.
 
 ### [1.0.0]
 #### Added
- - [2020-06-20, F.P.A. Vogt] Add option to save output to file (#2).
- - [2020-06-19, F.P.A. Vogt] Initial module assembly + Github upload.
+ - [2020-06-20, fpavogt] Add option to save output to file (#2).
+ - [2020-06-19, fpavogt] Initial module assembly + Github upload.
 #### Fixed:
- - [2020-06-20, F.P.A. Vogt] Fix bug for scripts with last lines containing only spaces (#2).
+ - [2020-06-20, fpavogt] Fix bug for scripts with last lines containing only spaces (#2).

@@ -5,7 +5,7 @@ Python code.
 
 This file contains the main setup for the linestats package.
 
-Copyright (c) 2020-2021 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
+Copyright (c) 2020-2022 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
 Distributed under the terms of the GNU General Public License v3.0 or later.
 

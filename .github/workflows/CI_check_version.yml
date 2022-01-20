@@ -11,11 +11,7 @@ on:
 jobs:
   version:
 
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-
+    runs-on: ubuntu-latest
     steps:
 
     - name: Checkout current repository
