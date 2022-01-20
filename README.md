@@ -76,6 +76,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### [1.2.1]
 #### Added:
 - [2022-01-20, fpavogt] Add new CI to check if code version increases.
+- [2022-01-20, fpavogt] Add new PR and Issues templates.
 #### Changed:
 - [2020-01-20, fpavogt] Adjusted copyright years.
 
