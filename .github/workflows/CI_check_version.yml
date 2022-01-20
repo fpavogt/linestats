@@ -16,6 +16,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
 
+    steps:
+
     - name: Checkout current repository
       uses: actions/checkout@v2
 
@@ -30,12 +32,12 @@ jobs:
         pip install setuptools
       shell: bash
 
-    steps:
     - name: wget the HEAD and BASE version files
       run: |
         export VERSION_LOC=linestats/version.py
         wget -O head_version.tmp https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
         wget -O base_version.tmp https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
+      shell: bash
 
     - name: Check if the version was increased
       run: |
