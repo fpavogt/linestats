@@ -23,13 +23,6 @@ jobs:
         wget -O head_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
         wget -O base_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
 
-    - name: Extract the head and base version
-      run: |
-        HEAD_VERSION="$(grep version head_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
-        echo "HEAD_VERSION:" $HEAD_VERSION
-        BASE_VERSION="$(grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
-        echo "BASE_VERSION:" $BASE_VERSION
-
     - name: Checkout current repository
       uses: actions/checkout@v2
 
@@ -44,6 +37,12 @@ jobs:
         pip install setuptools
       shell: bash
 
+
     - name: Check if the version was increased
-      run: python ./.github/workflows/check_version.py $HEAD_VERSION $BASE_VERSION
+      run: |
+        HEAD_VERSION="$(grep version head_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
+        echo "HEAD_VERSION:" $HEAD_VERSION
+        BASE_VERSION="$(grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
+        echo "BASE_VERSION:" $BASE_VERSION
+        python ./.github/workflows/check_version.py $HEAD_VERSION $BASE_VERSION
       shell: bash
