@@ -32,13 +32,13 @@ jobs:
         pip install setuptools
       shell: bash
 
-    - name: wget the HEAD and BASE version files
+    - name: wget/cp the BASE and HEAD version files
       run: |
         export VERSION_LOC=linestats/version.py
         echo $GITHUB_HEAD_REF
         echo $GITHUB_BASE_REF
-        wget -O head_version.tmp https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_HEAD_REF/$VERSION_LOC
         wget -O base_version.tmp https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
+        cp ./$VERSION_LOC head_version.tmp
       shell: bash
 
     - name: Check if the version was increased
