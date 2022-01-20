@@ -1,0 +1,22 @@
+# This workflow will check that the code version was correctly upgraded.
+#
+# Copyright (c) 2022 MeteoSwiss, created by F.P.A. Vogt; frederic.vogt@meteoswiss.ch
+
+name: CI_check_version
+
+on:
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  pytest:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+    # Get the head version file
+    - name: Fetch the HEAD version file
+      run: echo "wget $GITHUB_SERVER_URL + $GITHUB_REPOSITORY + $GITHUB_HEAD_REF
