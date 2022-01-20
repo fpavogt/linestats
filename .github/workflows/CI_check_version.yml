@@ -6,7 +6,7 @@ name: CI_check_version
 
 on:
   pull_request:
-    branches: [ master, develop ]
+    branches: [ master ]
 
 jobs:
   version:
@@ -33,6 +33,8 @@ jobs:
       shell: bash
 
     - name: wget/cp the BASE and HEAD version files
+      # Here, I could get both the BASE and HEAD files with wget, but cp-ing the HEAD is safer,
+      # since we have cloned the repo anyway.
       run: |
         export VERSION_LOC=linestats/version.py
         echo $GITHUB_HEAD_REF
