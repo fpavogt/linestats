@@ -77,6 +77,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 #### Added:
 - [2022-01-20, fpavogt] Add new CI to check if code version increases.
 - [2022-01-20, fpavogt] Add new PR and Issues templates.
+- [2022-01-20, fpavogt] Add CI to push to pypi upon new releases.
 #### Changed:
 - [2020-01-20, fpavogt] Adjusted copyright years.
 
