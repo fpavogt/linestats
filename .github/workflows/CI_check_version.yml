@@ -38,4 +38,4 @@ jobs:
     # Run a little program to check if two versions are the same
     - name: Check if the version was increased
       run: python ./.github/workflows/check_version.py $HEAD_VERSION $BASE_VERSION
-        shell: bash
+      shell: bash
