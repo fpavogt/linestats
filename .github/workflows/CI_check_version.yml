@@ -24,6 +24,7 @@ jobs:
         wget -O base_version.py https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_BASE_REF/$VERSION_LOC
 
     - name: Extract the head and base version
+      run: |
         grep version head_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*' | HEAD_VERSION
         echo "HEAD_VERSION:" $HEAD_VERSION
         grep version base_version.py | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*' | BASE_VERSION
