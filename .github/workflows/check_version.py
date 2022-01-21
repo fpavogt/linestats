@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-Copyright (c) 2022 MeteoSwiss, contributors listed in AUTHORS.
+Copyright (c) 2022 fpavogt, contributors listed in AUTHORS.
 
 Distributed under the terms of the 3-Clause BSD License.
 
@@ -22,7 +22,7 @@ def main():
     parser = argparse.ArgumentParser(description='''Compare the versions between the head and base
                                                  branches of the PR. Fails is Head <= Base.''',
                                      epilog='Feedback, questions, comments: \
-                                             frederic.vogt@meteoswiss.ch \n',
+                                             frederic.vogt@alumni.anu.edu.au \n',
                                      formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('head', action='store', metavar='version',

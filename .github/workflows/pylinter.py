@@ -2,7 +2,7 @@
 '''
 Copyright (c) 2020-2022 fpavogt, contributors listed in AUTHORS.
 
-Distributed under the terms of the 3-CLause BSD License.
+Distributed under the terms of the 3-Clause BSD License.
 
 SPDX-License-Identifier: BSD-3-Clause
 
