@@ -41,9 +41,9 @@ jobs:
 
     - name: Check if the version was increased
       run: |
-        HEAD_VERSION="$(grep version head_version.tmp | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
+        HEAD_VERSION="$(grep version head_version.tmp | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*\.\?[[:alnum:]]*')"
         echo "HEAD_VERSION:" $HEAD_VERSION
-        BASE_VERSION="$(grep version base_version.tmp | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*')"
+        BASE_VERSION="$(grep version base_version.tmp | grep -o '[[:alnum:]]*\.[[:alnum:]]*\.[[:alnum:]]*\.\?[[:alnum:]]*')"
         echo "BASE_VERSION:" $BASE_VERSION
         python ./.github/workflows/check_version.py $HEAD_VERSION $BASE_VERSION
       shell: bash
