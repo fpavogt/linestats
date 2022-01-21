@@ -1,0 +1,38 @@
+All notable changes to linestats will be documented in this file.
+
+The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+
+## [Unreleased]
+### Added:
+### Fixed:
+### Changed:
+### Deprecated:
+### Removed:
+### Security:
+
+### [1.2.1]
+#### Added:
+- [2022-01-21, fpavogt] Add dedicated AUTHORS, CODE_OF_CONDUCT, and CHANGELOG files.
+- [2022-01-20, fpavogt] Add new CI to check if code version increases.
+- [2022-01-20, fpavogt] Add new PR and Issues templates.
+- [2022-01-20, fpavogt] Add CI to push to pypi upon new releases.
+#### Changed:
+- [2020-01-20, fpavogt] Adjusted copyright years.
+
+### [1.2.0]
+#### Added:
+- [2021-11-17, fpavogt] Add basic tests, and Github Actions to run pylint and pytest.
+### [1.1.0]
+#### Added:
+ - [2020-06-23, fpavogt] Add the `verbose` argument with associated `-w` option for the high-level entry point.
+#### Fixed:
+ - [2020-06-23, fpavogt] Fix bug with empty files.
+
+### [1.0.0]
+#### Added
+ - [2020-06-20, fpavogt] Add option to save output to file (#2).
+ - [2020-06-19, fpavogt] Initial module assembly + Github upload.
+#### Fixed:
+ - [2020-06-20, fpavogt] Fix bug for scripts with last lines containing only spaces (#2).

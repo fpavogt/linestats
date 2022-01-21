@@ -1,6 +1,6 @@
 # This workflow will check that the code version was increased.
 #
-# Copyright (c) 2022 MeteoSwiss, created by F.P.A. Vogt; frederic.vogt@meteoswiss.ch
+# Copyright (c) 2022 fpavogt; frederic.vogt@alumni.anu.edu.au
 
 name: CI_check_version
 

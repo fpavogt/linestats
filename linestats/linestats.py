@@ -130,7 +130,8 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
         search_path (pathlib.Path, str): path to file or folder to process.
         recursive (bool): if True, will run a recursive search for .py files in subfolders.
         save_to_file (pathlib.Path, str): if set, all code output will be stored in this file
-        verbose (bool): if True, will also indicate which files are skipped.
+        verbose (bool): if True, will give info for every individual file processed (not just the
+            total).
 
     Raises:
         Exception: If the search_path is invalid
@@ -243,9 +244,9 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
         if verbose:
             print(file_path, file=mess_chan)
             print(f'  Total: {total_lines} - ' +
-                  f'Code: {code} [{100*code/total_lines:.1f}] - '+
-                  f'Comment+docstr: {comm+docstr} [{100*(comm+docstr)/total_lines:.1f}] - '+
-                  f'Blank: {empty} [{100*empty/total_lines:.1f}]', file=mess_chan)
+                  f'Code: {code} [{100*code/total_lines:.1f}%] - '+
+                  f'Comment+docstr: {comm+docstr} [{100*(comm+docstr)/total_lines:.1f}%] - '+
+                  f'Blank: {empty} [{100*empty/total_lines:.1f}%]', file=mess_chan)
 
     # Print the final numbers
     print(' ', file=mess_chan)

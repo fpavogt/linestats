@@ -9,7 +9,7 @@ SPDX-License-Identifier: BSD-3-Clause
 This script can be used together with a Github Action to check whether a code version has been
 properly incremented.
 
-Created January 2022; F.P.A. Vogt; frederic.vogt@meteoswiss.ch
+Created January 2022; F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 '''
 
 import argparse
