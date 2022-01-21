@@ -14,6 +14,7 @@ Presenting **linestats: a small Python module to count the number of scripted, c
 - [Running](#running)
 - [Limitations](#limitations)
 - [Changelog](#changelog)
+- [Information for dev work](#information-for-dev-work)
 
 ## Installation
 
