@@ -95,8 +95,11 @@ Automated CI/CD checks are triggered upon Pull Requests being issued towards the
 
 Assuming the content of `develop` is ready for a release, here are the steps to follow:
 1) Issue a PR from `develop` into `master`. Merge it if all looks ok.
+
    :white_check_mark: The `CI_check_version` Action will run to check that the version has been increased.
+
 2) Create a new release from Github. This step has not been automated yet. Make sure to enter the
    same version number as set in the code !
+
    :white_check_mark: Upon publication of the release, the `CI_pypi` Action will directly upload the code
    to testpypi and pypi. Make sure it succeeds !
