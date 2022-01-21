@@ -5,7 +5,7 @@ Python code.
 
 This file contains the core functions.
 
-Copyright (c) 2020-2021 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
+Copyright (c) 2020-2022 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
 Distributed under the terms of the GNU General Public License v3.0 or later.
 
@@ -130,13 +130,12 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
         search_path (pathlib.Path, str): path to file or folder to process.
         recursive (bool): if True, will run a recursive search for .py files in subfolders.
         save_to_file (pathlib.Path, str): if set, all code output will be stored in this file
-        verbose (bool): if True, will also indicate which files are skipped.
+        verbose (bool): if True, will give info for every individual file processed (not just the
+            total).
 
     Raises:
         Exception: If the search_path is invalid
 
-    Todo:
-        * Add test functions
     '''
 
     # Set up the message output channel if needed
@@ -151,7 +150,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
     # Set the scene
     print(' ', file=mess_chan)
     print('linestats %s - https://github.com/fpavogt/linestats' % (__version__), file=mess_chan)
-    print('Copyright (c) 2020-2021 F.P.A. Vogt', file=mess_chan)
+    print('Copyright (c) 2020-2022 F.P.A. Vogt', file=mess_chan)
     print(' ', file=mess_chan)
 
     start_time = datetime.datetime.now()
@@ -222,7 +221,7 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
         grand_total += total_lines
 
         # If the file is empty, avoid a bad division by 0
-        if total_lines == 0:
+        if total_lines == 0 and verbose:
             print(file_path, file=mess_chan)
             print('  Total: 0', file=mess_chan)
             continue
@@ -242,10 +241,12 @@ def extract_line_stats(search_path, recursive=False, save_to_file=None, verbose=
         code = total_lines - empty - docstr - comm
         code_total += code
 
-        print(file_path, file=mess_chan)
-        print('  Total: %i - Code: %i [%.1f%%] - Comment+docstr: %i [%.1f%%] - Blank: %i [%.1f%%]' %
-              (total_lines, code, 100*code/total_lines, comm+docstr, 100*(comm+docstr)/total_lines,
-               empty, 100*empty/total_lines), file=mess_chan)
+        if verbose:
+            print(file_path, file=mess_chan)
+            print(f'  Total: {total_lines} - ' +
+                  f'Code: {code} [{100*code/total_lines:.1f}%] - '+
+                  f'Comment+docstr: {comm+docstr} [{100*(comm+docstr)/total_lines:.1f}%] - '+
+                  f'Blank: {empty} [{100*empty/total_lines:.1f}%]', file=mess_chan)
 
     # Print the final numbers
     print(' ', file=mess_chan)
