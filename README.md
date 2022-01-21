@@ -7,7 +7,7 @@
 
 Ever wanted/needed to know how many lines are empty, comments, docstrings or actual code in some Python scripts of yours ?
 
-Presenting **linestats: a small Python module to count the number of scripted, commented, docstringed, and empty lines in Python code**. Here is what it contains *and* what it does: [linestats.txt](https://github.com/fpavogt/linestats/blob/master/linestats.txt)
+Presenting **linestats: a small Python module to count the number of scripted, commented, docstringed, and empty lines in Python code**. Here is what linestats contains *and* what it does: [linestats.txt](https://github.com/fpavogt/linestats/blob/master/linestats.txt)
 
 ## Table of contents
 - [Installation](#installation)
@@ -35,7 +35,7 @@ Using linestats is fairly straightforward. You can do so (1) in any decent termi
      - `-r` to run a recursive search for `.py` files in subfolders,
      - `-s output_file.txt` to save the statistics to file instead of `sys.stdout`,
      - `-v` to print the linestats version, and
-     - `-w` to print also the name of the files that are being skipped.
+     - `-w` to print detailed info for every file.
 
   * from a Python script/shell:
      ```python3
@@ -50,7 +50,7 @@ Using linestats is fairly straightforward. You can do so (1) in any decent termi
 
 ## Limitations
 linestats is extremely basic, and the output should be largely self-explanatory. Still, here are a few aspects to keep in mind when using this code:
-1. linestats will process `.py` files. At present, there is no way to force the processing of other file types.
+1. linestats will only process `.py` files. At present, there is no way to force the processing of other file types.
 2. The different lines are counted in the following category order: **docstrings -> comments -> emtpy -> code**.
   Each step feeds the following only with the lines that do not belong to it. This implies, for example, that
     * an empty line inside a docstring is counted as a docstring line,
@@ -60,31 +60,43 @@ linestats is extremely basic, and the output should be largely self-explanatory.
 
 ## Changelog
 
-All notable changes to linestats will be documented below.
+See [here](CHANGELOG).
 
-The format is inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## Information for dev work
 
-[//]: # (### [Unreleased])
-[//]: # (#### Added:)
-[//]: # (#### Changed:)
-[//]: # (#### Deprecated:)
-[//]: # (#### Removed:)
-[//]: # (#### Fixed:)
-[//]: # (#### Security:)
+### Code of conduct
 
-### [1.2.0]
-#### Added:
-- [2021-11-17, F.P.A. Vogt] Add basic tests, and Github Actions to run pylint and pytest.
-### [1.1.0]
-#### Added:
- - [2020-06-23, F.P.A. Vogt] Add the `verbose` argument with associated `-w` option for the high-level entry point.
-#### Fixed:
- - [2020-06-23, F.P.A. Vogt] Fix bug with empty files.
+This project and everyone participating in it is governed by the [linestats Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+Please report unacceptable behavior to [frederic.vogt@alumni.anu.edu.au](mailto:frederic.vogt@alumni.anu.edu.au).
 
-### [1.0.0]
-#### Added
- - [2020-06-20, F.P.A. Vogt] Add option to save output to file (#2).
- - [2020-06-19, F.P.A. Vogt] Initial module assembly + Github upload.
-#### Fixed:
- - [2020-06-20, F.P.A. Vogt] Fix bug for scripts with last lines containing only spaces (#2).
+### Branching model
+
+The `develop` branch is the default one, where all contributions get merged. When a new release is
+warranted, a Pull Request to the `master` branch is issued. This implies that the `master` branch
+will always reflect the state of the latest release of the code.
+
+Contributors are required to work in their own branches, and issue Pull Requests into the `develop`
+branch when appropriate.
+
+The `master` and `develop` branches are protected.
+
+
+### CI/CD
+
+Automated CI/CD checks are triggered upon Pull Requests being issued towards the `develop` and
+`master` branches. At the time being, they are implemented using dedicated Github Actions specified under `.github/workflows`. These checks include:
+
+* code linting using `pylint`
+* code testing using `pytest`
+* check that the CHANGELOG was updated
+* check that the code version was incremented (for PR to `master` only)
+
+### Release mechanism
+
+Assuming the content of `develop` is ready for a release, here are the steps to follow:
+1) Issue a PR from `develop` into `master`. Merge it if all looks ok.
+   :white_check_mark: The `CI_check_version` Action will run to check that the version has been increased.
+2) Create a new release from Github. This step has not been automated yet. Make sure to enter the
+   same version number as set in the code !
+   :white_check_mark: Upon publication of the release, the `CI_pypi` Action will directly upload the code
+   to testpypi and pypi. Make sure it succeeds !

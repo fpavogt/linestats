@@ -5,7 +5,7 @@ Python code.
 
 This file handles the high-level entry point for the code.
 
-Copyright (c) 2020-2021 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
+Copyright (c) 2020-2022 F.P.A. Vogt; frederic.vogt@alumni.anu.edu.au
 
 Distributed under the terms of the GNU General Public License v3.0 or later.
 
@@ -22,15 +22,14 @@ parser = argparse.ArgumentParser(description='''Computes the number of blank, co
                                  '''and script lines in a python code. ''',
                                  epilog='Feedback, questions: frederic.vogt@alumni.anu.edu.au \n',
                                  formatter_class=argparse.RawTextHelpFormatter)
-
 parser.add_argument('-p', action='store', metavar='path/to/file(s)', default='.',
                     help='location or file to analyze')
 parser.add_argument('-r', action='store_true', help='run a recursive search')
 parser.add_argument('-s', action='store', metavar='path/to/file.txt', default=None,
                     help='set a filename to store the linestats output')
 parser.add_argument('-v', '--version', action='version', version=('linestats %s' % __version__))
-parser.add_argument('-w', action='store_true', help='show also the files that are skipped')
-
+parser.add_argument('-w', action='store_true', default=False,
+                    help='If set, shows the details of every single file.')
 
 
 def main():

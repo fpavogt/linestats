@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 '''
-Copyright (c) 2020-2021 MeteoSwiss, contributors listed in AUTHORS.
+Copyright (c) 2020-2022 fpavogt, contributors listed in AUTHORS.
 
-Distributed under the terms of the GNU General Public License v3.0 or later.
+Distributed under the terms of the 3-CLause BSD License.
 
-SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-License-Identifier: BSD-3-Clause
 
 This script can be used together with a Github Action to run pylint on all the .py files in a
 repository. Command line arguments can be used to search for a specific subset of errors (if any are
@@ -13,6 +13,7 @@ will print all the errors found, but will not raise any Exception). If a score i
 script will raise an Exception if it is not met.
 
 Created May 2020; F.P.A. Vogt; frederic.vogt@meteoswiss.ch
+Adapted Jan 2022; F.P.A Vogt; frederic.vogt@alumni.anu.edu.au
 '''
 
 import argparse
@@ -24,7 +25,7 @@ from pylint import epylint as lint
 def main():
     ''' The main function. '''
 
-    # Use argparse to allow to feed parameters to this script
+    # Use argparse to allow feeding parameters to this script
     parser = argparse.ArgumentParser(description='''Runs pylint on all .py files in a folder and all
                                                     its subfolders. Intended to be used with a
                                                     Github Action.''',
